@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import Navbar from './Form/Navbar';
+import ProdukList from './Form/ProdukList';
+import Galerry from './Form/Galerry';
+import Login from './Form/Login';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Fungsi login
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  // Fungsi logout
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <main>
+          <Routes>
+            <Route path="/" element={<Galerry />} />
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            {/* Halaman product-list hanya bisa diakses jika user sudah login */}
+            <Route 
+              path="/product-list" 
+              element={isLoggedIn ? <ProdukList /> : <Login onLogin={handleLogin} />} 
+            />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

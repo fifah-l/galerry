@@ -1,0 +1,127 @@
+/* Galerry.css */
+
+/* Gallery Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f4fc; /* Ungu pastel */
+    margin: 0;
+    padding: 0;
+}
+
+.gallery {
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery h2 {
+    color: #6a4c93; /* Ungu tua */
+    margin-bottom: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 250px;
+    background-color: #e6d7f3; /* Ungu soft */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Menjaga gambar tetap dalam rasio dan tidak terpotong */
+    object-position: center; /* Memastikan gambar terpusat di dalam kontainer */
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;  /* Mengubah text align menjadi center */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content h3 {
+    margin: 0 0 10px;
+    color: #4b3b6e; /* Ungu medium */
+    font-size: 18px;
+    text-align: center; /* Pastikan teks terpusat */
+    width: 100%; /* Mengatur lebar 100% agar teks terpusat */
+}
+.card-content p {
+    margin: 0;
+    color: #5a3c7d; /* Ungu gelap */
+    font-size: 14px;
+}
+
+/* Menambahkan Gaya pada Elemen <p> */
+p {
+    color: #845299; /* Warna ungu pastel */
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(132, 82, 153, 0.1); /* Latar belakang dengan transparansi */
+    border-left: 5px solid #845299; /* Border kiri berwarna ungu pastel */
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan ringan */
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Efek hover */
+p:hover {
+    background-color: #e6d7f3; /* Latar belakang berubah ketika di-hover */
+    transform: scale(1.02); /* Efek perbesaran */
+}
+
+p::first-letter {
+    font-size: 24px; /* Membuat huruf pertama lebih besar */
+    font-weight: bold;
+    color: #6a4c93; /* Warna ungu tua untuk huruf pertama */
+}
+
+p::after {
+    content: " 🌸"; /* Menambahkan ikon bunga setelah paragraf */
+    font-size: 16px;
+}
+
+/* Desain untuk tombol pesan sekarang */
+.order-button {
+    background-color: #845299; /* Warna ungu pastel */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block; /* Agar tombol menjadi block element */
+    margin-left: auto; /* Memungkinkan tombol untuk menempatkan dirinya di tengah secara horizontal */
+    margin-right: auto; /* Memungkinkan tombol untuk menempatkan dirinya di tengah secara horizontal */
+}
+
+.order-button:hover {
+    background-color: #6a4c93; /* Warna ungu lebih gelap saat hover */
+    transform: scale(1.05); /* Membesarkan tombol sedikit saat hover */
+}
+
+.order-button:active {
+    background-color: #4b3b6e; /* Warna lebih gelap saat tombol ditekan */
+}

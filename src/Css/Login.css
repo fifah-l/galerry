@@ -1,0 +1,156 @@
+/* Login.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f4fc; /* Ungu pastel */
+  margin: 0;
+  padding: 0;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f4fc; /* Warna latar belakang untuk keseluruhan halaman */
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Card belakang yang lebih besar */
+.login-background-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1); /* Warna semi-transparan untuk card belakang */
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: -1; /* Letakkan card di belakang */
+}
+
+/* Styling untuk login-form */
+.login-form {
+  width: 350px;
+  background-color: #e6d7f3; /* Warna card form login */
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Form login berada di depan card */
+  position: relative;
+  text-align: center;
+}
+
+/* Judul login */
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #6a4c93;
+  font-size: 24px;
+}
+
+/* Styling untuk label form */
+.login-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4b3b6e;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Styling input form */
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #c8b4e6;
+  border-radius: 8px;
+  background-color: #faf6ff;
+  font-size: 16px;
+  color: #4b3b6e;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: #6a4c93;
+  outline: none;
+  background-color: #f3ebff;
+}
+
+/* Tombol login */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #6a4c93;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-form button:hover {
+  background-color: #5a3c7d;
+}
+
+/* Styling untuk error message */
+.error-message {
+  margin-bottom: 15px;
+  color: #d9534f;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Styling untuk password input dan ikon */
+.password-input-container {
+  position: relative;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding-right: 30px; /* Memberikan ruang untuk ikon */
+}
+
+#show-password-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c63ff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #6c63ff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Background card behind the login form */
+.login-background-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 520px;
+  background: linear-gradient(145deg, #f1e1ff, #e6d7f3); /* Gradasi warna ungu pastel */
+  border-radius: 16px; /* Sudut lebih bulat */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Bayangan lebih dramatis */
+  padding: 30px;
+  z-index: 1; /* Card berada di bawah form login */
+  border: 2px solid #c8a7d9; /* Border halus dengan warna yang serasi */
+}
+
+/* Form login */
+
+
+/* Gaya lainnya tetap sama */
