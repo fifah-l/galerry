@@ -1,5 +1,3 @@
-/* Galerry.css */
-
 /* Gallery Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -124,4 +122,78 @@ p::after {
 
 .order-button:active {
     background-color: #4b3b6e; /* Warna lebih gelap saat tombol ditekan */
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Responsif untuk layar kecil (ponsel) */
+@media (max-width: 768px) {
+    .gallery {
+        padding: 10px;
+    }
+
+    .card-container {
+        gap: 15px;
+    }
+
+    .card {
+        width: 220px; /* Mengurangi ukuran kartu agar pas di layar kecil */
+    }
+
+    .card-image {
+        height: 180px; /* Mengurangi tinggi gambar */
+    }
+
+    .card-content h3 {
+        font-size: 16px; /* Mengurangi ukuran font judul */
+    }
+
+    .card-content p {
+        font-size: 12px; /* Mengurangi ukuran font harga */
+    }
+
+    .order-button {
+        font-size: 14px; /* Ukuran font tombol lebih kecil */
+        padding: 8px 15px;
+    }
+
+    p {
+        font-size: 16px; /* Ukuran font paragraf lebih kecil */
+    }
+}
+
+/* Responsif untuk layar lebih kecil (ponsel kecil) */
+@media (max-width: 480px) {
+    .card-container {
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .card {
+        width: 90%; /* Kartu menggunakan hampir seluruh lebar layar */
+    }
+
+    .card-image {
+        height: 150px; /* Gambar lebih kecil pada layar kecil */
+    }
+
+    .card-content h3 {
+        font-size: 14px; /* Font lebih kecil */
+    }
+
+    .order-button {
+        font-size: 12px; /* Ukuran tombol lebih kecil */
+        padding: 6px 12px;
+    }
+
+    p {
+        font-size: 14px; /* Font paragraf lebih kecil */
+    }
 }

@@ -1,0 +1,101 @@
+/* Form Container */
+.add-product {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px; /* Reduced padding for smaller screens */
+  background-color: #f8f0ff; /* Ungu pastel */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-product h2 {
+  text-align: center;
+  color: #6a0dad; /* Ungu soft */
+}
+
+/* Input Fields */
+.add-product input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #faf8fc;
+  font-size: 14px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-product button {
+  width: 48%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-product button:first-of-type {
+  background-color: #6a0dad; /* Ungu soft */
+  color: white;
+}
+
+.add-product button:last-of-type {
+  background-color: #e0e0e0; /* Warna netral */
+  color: #6a0dad; /* Ungu soft */
+}
+
+.add-product button:hover {
+  opacity: 0.9;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .add-product {
+      padding: 20px; /* Reduce padding for smaller devices */
+  }
+
+  .add-product h2 {
+      font-size: 24px; /* Adjust title font size */
+  }
+
+  .add-product input {
+      font-size: 16px; /* Slightly larger font for easier reading on small devices */
+      padding: 12px; /* Increase padding for easier tap */
+  }
+
+  .button-group {
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: center;
+  }
+
+  .add-product button {
+      width: 100%; /* Make buttons full-width for smaller screens */
+      margin: 10px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .add-product {
+      padding: 15px; /* Reduce padding further on very small screens */
+  }
+
+  .add-product h2 {
+      font-size: 22px; /* Make the title font even smaller */
+  }
+
+  .add-product input {
+      font-size: 14px; /* Adjust the input font size for smaller screens */
+      padding: 10px; /* Adjust input padding */
+  }
+
+  .add-product button {
+      font-size: 14px; /* Adjust button text size */
+      padding: 12px; /* Adjust button padding */
+  }
+}

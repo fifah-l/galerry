@@ -1,24 +1,50 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Mengimpor useNavigate dari react-router-dom
+import { useNavigate } from 'react-router-dom';
 import '../Css/Login.css'; // Pastikan Anda membuat file CSS ini
 import 'font-awesome/css/font-awesome.min.css'; // Mengimpor FontAwesome
 
-const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
+const Login = () => {
+  const [email, setEmail] = useState('');  // Ganti 'username' dengan 'email'
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); // Inisialisasi useNavigate
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!username || !password) {
-      setError('Silakan isi username dan password.');
+    if (!email || !password) {  // Ganti 'username' dengan 'email'
+      setError('Silakan isi email dan password.');
       return;
     }
     setError('');
-    onLogin(); // Mengubah status login
-    navigate('/product-list'); // Setelah login, arahkan ke halaman product-list
+
+    try {
+      // Kirim request login ke backend dengan email
+      const response = await fetch('http://localhost:9080/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const { token, adminData } = data; // Misalnya, data yang diterima berisi token dan adminData
+
+        // Simpan token dan data admin yang diterima dari server
+        localStorage.setItem("authToken", token);
+        localStorage.setItem("adminData", JSON.stringify(adminData));
+
+        // Redirect ke halaman produk
+        navigate('/product-list');
+      } else {
+        const errorData = await response.text();
+        setError(errorData || 'Login gagal');
+      }
+    } catch (error) {
+      setError('Terjadi kesalahan saat login.');
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -27,21 +53,18 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="login-page">
-      {/* Card behind the login form */}
       <div className="login-background-card"></div>
-
-      {/* Form Login */}
       <div className="login-form">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           {error && <p className="error-message">{error}</p>}
-          <label>Username</label>
+          <label>Email</label> {/* Ganti 'Username' dengan 'Email' */}
           <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="email"  // Pastikan tipe input adalah 'email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}  // Ganti 'username' dengan 'email'
             required
-            placeholder="Masukkan username"
+            placeholder="Masukkan email"
           />
           <label>Password</label>
           <div className="password-input-container">

@@ -1,0 +1,120 @@
+/* Styling untuk form edit produk */
+.edit-form {
+  background-color: #F4F1F9; /* Warna latar belakang ungu pastel */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ganti menjadi 100% untuk memastikan form mengambil seluruh lebar pada layar kecil */
+  max-width: 600px; /* Maksimal lebar 600px pada layar besar */
+  margin: 30px auto;
+}
+
+/* Judul form */
+.edit-form h2 {
+  color: #9B4D96; /* Warna ungu soft */
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Styling untuk tabel */
+table {
+  width: 100%;
+  margin-bottom: 50px;
+  border-collapse: collapse;
+}
+
+table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+table label {
+  color: #9B4D96; /* Warna ungu soft */
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #C8A9C1; /* Warna ungu pastel */
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Tombol simpan */
+button {
+  background-color: #9B4D96; /* Warna ungu soft */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #7A387B; /* Warna ungu lebih gelap saat hover */
+}
+
+/* Tombol Batal */
+button.cancel-button {
+  background-color: #f44336; /* Merah untuk tombol batal */
+}
+
+button.cancel-button:hover {
+  background-color: #d32f2f; /* Merah lebih gelap saat hover */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .edit-form {
+    width: 90%; /* Lebar form 90% dari layar */
+  }
+
+  table td {
+    padding: 8px; /* Mengurangi padding untuk layar kecil */
+  }
+
+  /* Ukuran font lebih kecil untuk layar kecil */
+  .edit-form h2 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 14px; /* Ukuran font tombol sedikit lebih kecil */
+    padding: 8px 15px;
+  }
+}
+
+/* Responsif untuk perangkat mobile (lebih kecil dari 480px) */
+@media (max-width: 480px) {
+  .edit-form {
+    width: 95%; /* Lebar form hampir 100% pada layar sangat kecil */
+  }
+
+  table td {
+    padding: 6px; /* Lebih kecil lagi untuk layar sangat kecil */
+  }
+
+  .edit-form h2 {
+    font-size: 18px; /* Menyesuaikan ukuran font */
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 12px; /* Padding tombol lebih kecil */
+  }
+}

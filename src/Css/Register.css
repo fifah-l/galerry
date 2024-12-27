@@ -1,0 +1,174 @@
+/* Register.css */
+
+/* Mengatur tampilan container supaya form berada di tengah halaman */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f6e6ff; /* Warna ungu pastel untuk latar belakang */
+  padding: 0 10px; /* Add padding for small screens */
+}
+
+/* Mengatur desain kartu form */
+.register-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Efek bayangan ringan */
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin: 0 auto; /* Center align */
+}
+
+/* Desain judul form */
+.register-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #8e44ad; /* Warna ungu soft */
+  margin-bottom: 20px;
+}
+
+/* Desain pesan error */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Mengatur tampilan setiap grup input */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Desain label input */
+.input-group label {
+  font-weight: 600;
+  color: #6a2c91; /* Warna ungu soft untuk label */
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Desain input text dan email */
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Efek ketika input difokuskan */
+.input-field:focus {
+  border-color: #8e44ad; /* Warna ungu soft saat fokus */
+  outline: none;
+}
+
+/* Menambahkan ikon di dalam input */
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #8e44ad; /* Warna ungu soft untuk ikon */
+}
+
+/* Menambahkan tombol untuk toggle password */
+.password-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #8e44ad;
+}
+
+/* Desain tombol submit */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #9b59b6; /* Warna ungu pastel untuk tombol */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efek hover pada tombol submit */
+.submit-btn:hover {
+  background-color: #8e44ad; /* Ungu soft saat hover */
+}
+
+/* Desain link ke halaman login */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link-text {
+  color: #8e44ad;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Efek hover pada link login */
+.login-link-text:hover {
+  text-decoration: underline;
+}
+
+/* Responsivitas untuk perangkat lebih kecil */
+@media (max-width: 576px) {
+  .register-card {
+    padding: 20px;
+    width: 100%; /* Full width on small screens */
+    max-width: 100%; /* Remove max-width */
+  }
+
+  .register-title {
+    font-size: 22px;
+  }
+
+  .input-field {
+    padding: 10px;
+    font-size: 14px; /* Smaller font for small screens */
+  }
+
+  .submit-btn {
+    padding: 10px;
+    font-size: 14px; /* Adjusted button size for smaller screens */
+  }
+
+  .input-icon {
+    font-size: 16px; /* Adjust icon size */
+  }
+
+  .password-toggle-btn {
+    font-size: 16px; /* Adjust icon size */
+  }
+}
+
+/* Additional responsiveness for medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 25px;
+  }
+
+  .register-title {
+    font-size: 24px;
+  }
+
+  .submit-btn {
+    padding: 11px;
+    font-size: 15px; /* Slightly bigger button for medium screens */
+  }
+}

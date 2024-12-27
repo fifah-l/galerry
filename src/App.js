@@ -1,36 +1,29 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Form/Navbar';
 import ProdukList from './Form/ProdukList';
 import Galerry from './Form/Galerry';
 import Login from './Form/Login';
+import Tambah from './Form/Tambah'; 
+import EditProduk from './Form/EditProduk';
+import PrivateRoute from './private/PrivateRoute'; // Import PrivateRoute
+import Register from './Form/Register';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // Fungsi login
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
-
-  // Fungsi logout
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
-
   return (
     <Router>
       <div className="App">
-        <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <Navbar />
         <main>
           <Routes>
             <Route path="/" element={<Galerry />} />
-            <Route path="/login" element={<Login onLogin={handleLogin} />} />
-            {/* Halaman product-list hanya bisa diakses jika user sudah login */}
-            <Route 
-              path="/product-list" 
-              element={isLoggedIn ? <ProdukList /> : <Login onLogin={handleLogin} />} 
-            />
+            <Route path="/login" element={<Login />} />
+            
+            {/* Protecting routes with PrivateRoute */}
+            <Route path="/product-list" element={<PrivateRoute element={<ProdukList />} />} />
+            <Route path="/tambah-produk" element={<PrivateRoute element={<Tambah />} />} />
+            <Route path="/edit-produk/:id" element={<PrivateRoute element={<EditProduk />} />} />
+            <Route path="/register" element={<Register element={<Register />} />} />
           </Routes>
         </main>
       </div>
