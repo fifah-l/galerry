@@ -7,7 +7,7 @@ import '../Css/Register.css'; // Mengimpor file CSS untuk styling
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
-  const [username] = useState("");
+  const [username, setUsername] = useState(""); // Use useState for username
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -91,10 +91,9 @@ function Register() {
               </span>
               <input 
                 type="text" 
-                value={this.state.someValue || ""} // Ganti nilai undefined dengan string kosong
-                onChange={this.handleChange} 
+                value={username} // Correctly bind the username state
+                onChange={(e) => setUsername(e.target.value)} // Use setUsername to update the value
               />
-
             </div>
           </div>
 

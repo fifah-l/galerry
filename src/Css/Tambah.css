@@ -1,13 +1,14 @@
 /* Form Container */
 .add-product {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 60px auto; /* Adjusted margin to push the card lower */
   padding: 30px; /* Reduced padding for smaller screens */
   background-color: #f8f0ff; /* Ungu pastel */
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Other styles remain the same */
 .add-product h2 {
   text-align: center;
   color: #6a0dad; /* Ungu soft */

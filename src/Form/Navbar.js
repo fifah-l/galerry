@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Use useNavigate for redirection
+import { Link, useNavigate } from 'react-router-dom';
 import '../Css/Navbar.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
 
-  // Fungsi untuk menangani logout
+  
   const handleLogout = () => {
-    localStorage.removeItem("authToken"); // Menghapus token dari localStorage
-    localStorage.removeItem("adminData"); // Optional: Remove admin data
-    navigate('/login'); // Arahkan pengguna ke halaman login setelah logout
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("adminData");
+    navigate('/login');
   };
 
-  // Check if the user is logged in by checking the presence of the authToken in localStorage
+
   const isLoggedIn = localStorage.getItem("authToken");
 
   return (
@@ -28,13 +28,7 @@ const Navbar = () => {
           )}
           {isLoggedIn ? (
             <li>
-              <button 
-                className="logout-button" 
-                onClick={handleLogout} 
-                aria-label="Logout"
-              >
-                Logout
-              </button>
+              <button className="logout-button" onClick={handleLogout} aria-label="Logout">Logout</button>
             </li>
           ) : (
             <li><Link to="/login" aria-label="Go to login page">Login</Link></li>

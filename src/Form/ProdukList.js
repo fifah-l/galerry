@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaPlusCircle, FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing icons
 import "../Css/ProdukList.css";
 
 const ProdukList = () => {
@@ -40,16 +41,17 @@ const ProdukList = () => {
         console.error("Error saat menghapus produk:", error);
       });
   };
-  
 
   return (
     <div className="product-list">
       <h2>Daftar Produk Boneka</h2>
       <div className="actions">
-  <Link to="/tambah-produk">
-    <button className="button-add">Tambah Produk</button>
-  </Link>
-</div>
+        <Link to="/tambah-produk">
+          <button className="button-add">
+            <FaPlusCircle /> Tambah Produk
+          </button>
+        </Link>
+      </div>
 
       <table className="product-table">
         <thead>
@@ -72,13 +74,15 @@ const ProdukList = () => {
               <td>{product.stok}</td>
               <td>
                 <Link to={`/edit-produk/${product.id}`}>
-                  <button className="button-edit">Edit</button>
+                  <button className="button-edit">
+                    <FaEdit /> Edit
+                  </button>
                 </Link>
                 <button
                   className="button-delete"
                   onClick={() => handleDeleteProduct(product.id)}
                 >
-                  Hapus
+                  <FaTrashAlt /> Hapus
                 </button>
               </td>
             </tr>

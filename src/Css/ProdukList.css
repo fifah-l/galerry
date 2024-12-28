@@ -41,7 +41,7 @@
 
 .button-add {
   background-color: #6a0dad; /* Ungu soft */
-  color: white;
+  color: #6a0dad;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -115,21 +115,23 @@
 }
 
 /* Button Tambah Produk */
-.button-add {
-  background-color: #d4b5f4; /* Ungu Pastel */
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
+.button-add, .button-edit, .button-delete {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  padding: 8px 15px;
   font-size: 16px;
+  border: none;
   cursor: pointer;
-  font-weight: bold;
-  margin: 10px 0;
-  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.button-add {
+  background-color: #B8A0D9; /* Soft Purple (Ungu Soft) */
 }
 
 .button-add:hover {
-  background-color: #b38ce8; /* Warna lebih gelap saat hover */
+  background-color: #9B78B9; /* Darker Soft Purple */
 }
 
 /* Wrapper untuk tombol Edit dan Hapus */
@@ -140,38 +142,24 @@
   margin-top: 10px;
 }
 
-/* Tombol Edit */
-.button-edit {
-  background-color: #9b6fd1;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
 .button-edit:hover {
-  background-color: #e88e8e; /* Warna lebih gelap saat hover */
+  background-color: #B59ED6; /* Darker Pastel Purple */
 }
 
-/* Tombol Hapus */
+.button-edit {
+  background-color: #D4C0EB; /* Pastel Purple (Ungu Pastel) */
+  color: #6a0dad;
+}
+
 .button-delete {
-  background-color: #9b6fd1;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-.button-delete:hover {
-  background-color: #e88e8e; /* Warna lebih gelap saat hover */
+background-color: #C49DD3; /* Soft Purple for Delete */
+color: #6a0dad;
 }
 
 .button-edit:hover,
 .button-delete:hover {
   opacity: 0.9;
+  background-color: #9D76A6; /* Darker Soft Purple */
 }
 
 /* Card Style */
@@ -213,12 +201,4 @@
   gap: 20px;
 }
 
-.search-input {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  margin: 15px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-}
+

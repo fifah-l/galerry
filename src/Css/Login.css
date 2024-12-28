@@ -2,9 +2,9 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f8f4fc; /* Ungu pastel */
-  margin: 0;
-  padding: 0;
+  background-color: #faf6ff; /* Ungu pastel */
+  margin: 100;
+  padding: 100;
 }
 
 .login-page {
@@ -14,27 +14,13 @@ body {
   min-height: 100vh;
   background-color: #f8f4fc;
   position: relative;
-  padding: 20px;
   box-sizing: border-box;
-}
-
-/* Card belakang yang lebih besar */
-.login-background-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  z-index: -1;
 }
 
 /* Styling untuk login-form */
 .login-form {
   width: 100%;
-  max-width: 350px;  /* Ensure it doesn't stretch too wide */
+  max-width: 350px; 
   background-color: #e6d7f3;
   padding: 30px 20px;
   border-radius: 12px;

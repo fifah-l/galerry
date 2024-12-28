@@ -34,7 +34,8 @@ const Login = () => {
 
         // Simpan token dan data admin yang diterima dari server
         localStorage.setItem("authToken", token);
-        localStorage.setItem("adminData", JSON.stringify(adminData));
+        localStorage.setItem("adminData", JSON.stringify(adminData)); // Store admin data as stringified JSON
+        localStorage.setItem("adminId", adminData.id);
 
         // Redirect ke halaman produk
         navigate('/product-list');

@@ -6,23 +6,24 @@ import '../Css/Edit.css';
 const EditProduk = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({
-    namaBoneka: '',
-    harga: '',
-    deskripsi: '',
+    namaBoneka: '', 
+    harga: '', 
+    deskripsi: '', 
     stok: ''
   });
   const navigate = useNavigate();
-  const idAdmin = 2;
+
+  const idAdmin = JSON.parse(localStorage.getItem("adminData"))?.id; // Getting admin ID from localStorage
 
   useEffect(() => {
-    fetch(`http://localhost:9080/api/produk/${id}`)
+    fetch(`http://localhost:9080/api/produk/getById/${id}`)  // Corrected endpoint
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) => {
         console.error('Error fetching product data:', error);
         Swal.fire({
           icon: 'error',
-          title: 'Gagal Memuat Data',
+          title: 'Gagal Memuat Data', 
           text: 'Terjadi kesalahan saat memuat data produk.',
         });
       });
@@ -30,7 +31,8 @@ const EditProduk = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
+    // Validate product fields
     if (!product.namaBoneka || !product.harga || !product.deskripsi || !product.stok) {
       Swal.fire({
         icon: 'warning',
@@ -40,17 +42,26 @@ const EditProduk = () => {
       });
       return;
     }
-
+  
+    // Create product data to send in the PUT request
+    const productData = {
+      namaBoneka: product.namaBoneka,
+      harga: product.harga,
+      deskripsi: product.deskripsi,
+      stok: product.stok,
+    };
+  
+    // Sending the PUT request with JSON payload
     fetch(`http://localhost:9080/api/produk/editById/${id}?idAdmin=${idAdmin}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', // Ensure the Content-Type is set to application/json
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify(productData), // Send product data as JSON
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to update product');
+          throw new Error('Gagal memperbarui produk');
         }
         return response.json();
       })
@@ -65,17 +76,17 @@ const EditProduk = () => {
         });
       })
       .catch((error) => {
-        console.error('Error updating product:', error);
+        console.error('Terjadi kesalahan saat memperbarui produk:', error);
         Swal.fire({
           icon: 'error',
-          title: 'Gagal Memperbarui Produk!',
+          title: 'Terjadi kesalahan saat memperbarui produk!',
           text: 'Terjadi kesalahan saat memperbarui produk.',
         });
       });
   };
 
   const handleCancel = () => {
-    navigate('/product-list'); // Navigasi ke halaman product-list
+    navigate('/product-list'); // Navigate to product list page
   };
 
   const handleChange = (e) => {
@@ -86,7 +97,7 @@ const EditProduk = () => {
     }));
   };
 
-  if (!product) return <p>Loading...</p>;
+  if (!product) return <p>Memuat...</p>;
 
   return (
     <div className="edit-form">
@@ -97,43 +108,43 @@ const EditProduk = () => {
             <tr>
               <td><label>Nama Produk:</label></td>
               <td>
-                <input
-                  type="text"
-                  name="namaBoneka"
-                  value={product.namaBoneka}
-                  onChange={handleChange}
+                <input 
+                  type="text" 
+                  name="namaBoneka" 
+                  value={product.namaBoneka} 
+                  onChange={handleChange} 
                 />
               </td>
             </tr>
             <tr>
               <td><label>Harga:</label></td>
               <td>
-                <input
-                  type="number"
-                  name="harga"
-                  value={product.harga}
-                  onChange={handleChange}
+                <input 
+                  type="number" 
+                  name="harga" 
+                  value={product.harga} 
+                  onChange={handleChange} 
                 />
               </td>
             </tr>
             <tr>
               <td><label>Deskripsi:</label></td>
               <td>
-                <textarea
-                  name="deskripsi"
-                  value={product.deskripsi}
-                  onChange={handleChange}
+                <textarea 
+                  name="deskripsi" 
+                  value={product.deskripsi} 
+                  onChange={handleChange} 
                 />
               </td>
             </tr>
             <tr>
               <td><label>Stok:</label></td>
               <td>
-                <input
-                  type="number"
-                  name="stok"
-                  value={product.stok}
-                  onChange={handleChange}
+                <input 
+                  type="number" 
+                  name="stok" 
+                  value={product.stok} 
+                  onChange={handleChange} 
                 />
               </td>
             </tr>
@@ -141,13 +152,7 @@ const EditProduk = () => {
         </table>
         <div className="button-group">
           <button type="submit" className="save-button">Simpan</button>
-          <button
-            type="button"
-            className="cancel-button"
-            onClick={handleCancel}
-          >
-            Batal
-          </button>
+          <button type="button" className="cancel-button" onClick={handleCancel}>Batal</button>
         </div>
       </form>
     </div>
