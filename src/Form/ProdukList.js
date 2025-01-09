@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaPlusCircle, FaEdit, FaTrashAlt } from 'react-icons/fa'; // Importing icons
+import { Link, useNavigate } from 'react-router-dom';
+import { FaPlusCircle, FaEdit, FaTrashAlt } from 'react-icons/fa';
+import axios from 'axios'; // Importing axios
 import "../Css/ProdukList.css";
+import { API_REGISTER } from '../utils/BaseUrl';
 
 const ProdukList = () => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   // Retrieve admin data from localStorage
   const adminData = JSON.parse(localStorage.getItem("adminData"));
@@ -12,10 +15,10 @@ const ProdukList = () => {
 
   useEffect(() => {
     if (idAdmin) {
-      fetch(`http://localhost:9080/api/produk/getAllByAdmin/${idAdmin}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setProducts(data);
+      axios
+        .get(`http://localhost:9080/api/produk/getAllByAdmin/${idAdmin}`)
+        .then((response) => {
+          setProducts(response.data);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -24,21 +27,28 @@ const ProdukList = () => {
   }, [idAdmin]);
 
   const handleDeleteProduct = (id) => {
-    // Kirim permintaan DELETE ke backend
-    fetch(`http://localhost:9080/api/produk/delete/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Jika berhasil, hapus produk dari state
-          setProducts(products.filter((product) => product.id !== id));
-          console.log(`Produk dengan ID ${id} berhasil dihapus.`);
-        } else {
-          console.error(`Gagal menghapus produk dengan ID ${id}`);
-        }
+    axios
+      .delete(`http://localhost:9080/api/produk/delete/${id}`)
+      .then(() => {
+        setProducts(products.filter((product) => product.id !== id));
+        console.log(`Produk dengan ID ${id} berhasil dihapus.`);
+        
       })
       .catch((error) => {
         console.error("Error saat menghapus produk:", error);
+      });
+  };
+
+  const handleAddProduct = (newProduct) => {
+    axios
+      .post(`${API_REGISTER}`, newProduct)
+      .then((response) => {
+        setProducts([...products, response.data]);
+        console.log("Produk berhasil ditambahkan:", response.data);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error saat menambahkan produk:", error);
       });
   };
 

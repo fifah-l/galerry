@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Css/Login.css'; // Pastikan Anda membuat file CSS ini
 import 'font-awesome/css/font-awesome.min.css'; // Mengimpor FontAwesome
+import axios from 'axios';
+import { API_LOGIN } from '../utils/BaseUrl';
 
 const Login = () => {
   const [email, setEmail] = useState('');  // Ganti 'username' dengan 'email'
@@ -19,8 +21,8 @@ const Login = () => {
     setError('');
 
     try {
-      // Kirim request login ke backend dengan email
-      const response = await fetch('http://localhost:9080/api/login', {
+      // Mengirim data ke server dengan Axios
+      const response = await axios.post(`${API_LOGIN}`)( {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

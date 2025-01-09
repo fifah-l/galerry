@@ -4,6 +4,7 @@ import { faUser, faKey, faEyeSlash, faEye } from "@fortawesome/free-solid-svg-ic
 import axios from "axios";
 import Swal from "sweetalert2";
 import '../Css/Register.css'; // Mengimpor file CSS untuk styling
+import { API_REGISTER } from "../utils/BaseUrl";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +44,7 @@ function Register() {
 
     try {
       // Mengirim data ke server dengan Axios
-      const response = await axios.post("http://localhost:8080/api/user/register", {
+      const response = await axios.post(`${API_REGISTER}`)( {
         username,
         email,
         password,
